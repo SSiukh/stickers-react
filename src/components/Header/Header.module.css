@@ -1,5 +1,94 @@
-.icon{
-    fill: black;
-    color: black;
-    stroke: black;
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+.header {
+  background-color: transparent;
+  padding: 28px 0;
+  position: absolute;
+  width: 100%;
+}
+.headerNav {
+  width: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.headerLogo {
+  font-family: "Outfit", sans-serif;
+  font-weight: 400;
+  font-size: 28px;
+  text-align: center;
+  color: #fff;
+  width: 168px;
+  height: 36px;
+  background-color: #eb6424;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.headerLogo:hover {
+  color: #eb6424;
+  background-color: #f2e8cf;
+}
+
+.headerNavList {
+  display: flex;
+  gap: 47px;
+}
+.headerNavItem {
+  position: relative;
+  font-weight: 400;
+  font-size: 18px;
+  color: #f2e8cf;
+  padding: 10px 0;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+.headerNavItem::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  background-color: #eb6424;
+  bottom: 0;
+  left: 0;
+  height: 5px;
+  border-radius: 5px;
+  transform: translateX(-101%);
+  transition: transform 250ms linear;
+}
+.headerNavItem:hover {
+  transform: translateY(-3px);
+  color: #eb6424;
+}
+.headerNavItem:hover::after {
+  transform: translateX(0);
+}
+.headerContacts {
+  display: flex;
+  gap: 10px;
+}
+.headerContactsLink {
+  border: 1px solid rgba(242, 232, 207, 0.1);
+  border-radius: 10px;
+  padding: 8px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.contactIcons {
+  fill: #f2e8cf;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.headerContactsLink:hover {
+  border-color: rgba(235, 99, 36, 0.5);
+}
+.headerContactsLink:hover .contactIcons {
+  fill: #eb6424;
 }
