@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Header.module.css";
 import icon from '/telegram.svg';
+import icons from '/icons.svg';
 
 function Header() {
   return (
@@ -21,7 +22,7 @@ function Header() {
         </nav>
         <div className={styles.headerContacts}>
           <a href="https://www.instagram.com/_sticker.ua_?igsh=dmtyY20xbXp1YTFo">
-            <svg></svg>
+            <svg><use href={`${icons}#icon-instagram`}></use></svg>
           </a>
           <a href="">
             <svg className={styles.icon}>
