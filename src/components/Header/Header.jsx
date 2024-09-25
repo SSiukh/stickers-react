@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Header.module.css";
-import sprite from "./icons.svg";
+import icon from "../../assets/facebook.svg"
 
 function Header() {
   return (
@@ -24,9 +24,7 @@ function Header() {
             <svg></svg>
           </a>
           <a href="">
-            <svg>
-                <use href={`${process.env.PUBLIC_URL}/icons.svg#icon-instagram`}></use>
-            </svg>
+            <img src={icon} alt="icon" />
           </a>
           <a href="">
             <svg></svg>
