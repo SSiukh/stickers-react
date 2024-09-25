@@ -25,7 +25,7 @@ function Header() {
           </a>
           <a href="">
             <svg>
-                <use xlinkHref={`${sprite}#icon-instagram`}></use>
+                <use href={`${process.env.PUBLIC_URL}/icons.svg#icon-instagram`}></use>
             </svg>
           </a>
           <a href="">
