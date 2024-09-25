@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./Header.module.css";
-import icon from "../../assets/facebook.svg"
 
 function Header() {
   return (
@@ -24,7 +23,9 @@ function Header() {
             <svg></svg>
           </a>
           <a href="">
-            <img src={icon} alt="icon" />
+            <svg className={styles.icon}>
+                <use href="./src/assets/telegram.svg"></use>
+            </svg>
           </a>
           <a href="">
             <svg></svg>
