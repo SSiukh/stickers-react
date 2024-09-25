@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Header.module.css";
+import icon from '/telegram.svg';
 
 function Header() {
   return (
@@ -24,7 +25,7 @@ function Header() {
           </a>
           <a href="">
             <svg className={styles.icon}>
-                <use href="./src/assets/telegram.svg"></use>
+                <use href={`${icon}#telegram`}></use>
             </svg>
           </a>
           <a href="">
