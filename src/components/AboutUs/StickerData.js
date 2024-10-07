@@ -2,35 +2,44 @@ import smile from "../../assets/about-stickers/smile.JPG";
 import stoneIsland from "../../assets/about-stickers/stone-island.JPG";
 import dainese from "../../assets/about-stickers/dainese.JPG";
 import dog from "../../assets/about-stickers/dog.JPG";
+import Discount from "../Discount/Discount";
 
 export const Stickers = [
-  { index: 0, name: "smile", path: "", priority: 0 },
+  { index: 0, name: "smile", path: "", priority: 0, discount: 0 },
   {
     index: 1,
-    name: "stone-island",
+    name: "Stone island",
     path: stoneIsland,
     priority: 1,
     info: "Стильна та витривала наклейка з відомим логотипом Stone Island. Виготовлена з високоякісного матеріалу, який не боїться вологи, сонячного випромінювання та механічних пошкоджень. Ідеально підходить для прикраси двоколісного транспорту, одягу, або аксесуарів. Наклейка легко наноситься і довго тримається на будь-якій поверхні.",
+    price: 32,
+    discount: 25,
   },
   {
     index: 2,
-    name: "dainese",
+    name: "Dainese",
     path: dainese,
     priority: 0,
     info: "Ця наклейка з логотипом Dainese, відомого бренду захисного спорядження для мотоциклістів, підкреслить твою любов до швидкості та екстриму. Вона витривала, водостійка і стійка до ультрафіолетового випромінювання. Ідеально підходить для шоломів, мотоциклів чи екіпірування.",
+    price: 42,
+    discount: 35,
   },
   {
     index: 3,
-    name: "dog",
+    name: "Dog",
     path: dog,
     priority: 0,
     info: "Ця весела наклейка у вигляді смайла додасть яскравих емоцій вашому транспорту або будь-якому іншому аксесуару. Виготовлена з міцного матеріалу, наклейка не стирається і не втрачає кольорів навіть під впливом води чи бруду. Вона стане чудовим способом додати позитивного настрою.",
+    price: 32,
+    discount: 25,
   },
   {
     index: 4,
-    name: "smile",
+    name: "Smile",
     path: smile,
     priority: 0,
     info: "Ця наклейка з милим або агресивним зображенням собаки створена для тих, хто цінує домашніх улюбленців або любить виражати свій характер через дизайн. Вона стійка до погодних умов, не вигоряє на сонці і не боїться дощу. Може бути використана на транспорті, шоломах або інших поверхнях.",
+    price: 55,
+    discount: 45,
   },
 ];

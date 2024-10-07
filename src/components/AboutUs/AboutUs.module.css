@@ -130,6 +130,7 @@
 
 .infoStickerIcon {
   fill: #f2e8cf;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .infoStickerCatalogue {
@@ -139,6 +140,14 @@
   font-weight: 600;
   font-size: 20px;
   color: #f2e8cf;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.infoStickerCatalogue:hover,
+.infoStickerCatalogue:focus {
+  background-color: #f2e8cf;
+  color: #eb6424;
 }
 
 .infoStickerButton {
@@ -147,4 +156,13 @@
   height: 40px;
   border: none;
   background-color: #eb6424;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.infoStickerButton:hover {
+  background-color: #f2e8cf;
+}
+
+.infoStickerButton:hover .infoStickerIcon {
+  fill: #eb6424;
 }
