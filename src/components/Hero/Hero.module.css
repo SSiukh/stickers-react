@@ -4,6 +4,7 @@
   background-position: center;
   background-repeat: no-repeat;
   padding-top: 160px;
+  padding-bottom: 70px;
 }
 
 .heroContainer {
@@ -50,8 +51,13 @@
 
 .heroImg {
   transition: transform 750ms cubic-bezier(0.4, 0, 0.2, 1);
+  width: 530px;
 }
 
 .heroImg:hover {
   transform: rotate(360deg);
+}
+.infoStickerIcon {
+  fill: #eb6424;
+  stroke: #eb6424;
 }

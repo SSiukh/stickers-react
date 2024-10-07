@@ -1,0 +1,150 @@
+.aboutUs {
+  padding: 80px 0;
+  background-color: #e9ebe5;
+}
+.aboutContainer {
+  display: flex;
+}
+.aboutBlock {
+  position: relative;
+  width: calc((100% - 50px) / 2);
+  padding: 87px 60px;
+  background-image: url(../../assets/about-background.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50px;
+  height: 550px;
+  overflow: hidden;
+}
+.aboutTitle {
+  font-weight: 700;
+  font-size: 32px;
+  color: #f2e8cf;
+  margin-bottom: 50px;
+}
+.aboutText {
+  font-weight: 500;
+  font-size: 16px;
+  color: rgba(242, 232, 207, 0.7);
+  font-family: "Outfit", sans-serif;
+}
+.aboutText:not(:last-child) {
+  margin-bottom: 20px;
+}
+.aboutStickerCeil {
+  width: 300px;
+  height: 300px;
+  border: 2px solid #f2e8cf;
+  border-radius: 50px;
+  box-shadow: -4px -4px 10px 0 rgba(0, 0, 0, 0.5),
+    4px 4px 4px 0 rgba(0, 0, 0, 0.25);
+  filter: brightness(50%);
+  z-index: 1;
+  transition: filter 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  animation: stickerUnactive linear 2s infinite;
+}
+
+@keyframes stickerUnactive {
+  0% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+
+.aboutStickerFloor {
+  border: 1px solid #f2e8cf;
+  border-radius: 30px;
+  width: 150px;
+  height: 150px;
+  filter: blur(3x);
+  margin-right: -25px;
+  filter: brightness(30%);
+  transition: filter 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.aboutStickerCeil:hover {
+  filter: brightness(100%);
+}
+
+.aboutStickerFloor:hover {
+  filter: brightness(80%);
+  transform: scale(1.1);
+}
+
+.clickedSticker {
+  filter: brightness(100%);
+  transform: scale(1);
+  animation: none;
+}
+
+.aboutStickerFloor:not(:first-child) {
+  margin-left: -25px;
+}
+.stickersBlock {
+  margin-left: 50px;
+  display: flex;
+  align-items: center;
+}
+
+/* info block */
+
+.infoStickerBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  top: 550px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #38572a;
+  padding: 80px 60px;
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.infoStickerTitle {
+  font-weight: 600;
+  font-size: 46px;
+  color: #f2e8cf;
+}
+
+.infoStickerText {
+  font-weight: 500;
+  font-size: 16px;
+  color: rgba(242, 232, 207, 0.7);
+  line-height: 1.2;
+}
+
+.infoStickerInteractive {
+  display: flex;
+  gap: 33px;
+  align-items: end;
+}
+
+.infoStickerIcon {
+  fill: #f2e8cf;
+}
+
+.infoStickerCatalogue {
+  border-radius: 20px;
+  background-color: #eb6424;
+  padding: 17px 58px;
+  font-weight: 600;
+  font-size: 20px;
+  color: #f2e8cf;
+}
+
+.infoStickerButton {
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: #eb6424;
+}
