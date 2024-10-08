@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./AboutUs.module.css";
 import icons from "/icons.svg";
 
-import { Stickers } from "./StickerData";
+import { Stickers } from "../../data/stickers.json";
 
 function AboutUs() {
   const [sliceIndex, setSliceIndex] = useState(1);

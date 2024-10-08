@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./Discount.module.css";
 import DiscountCard from "./DiscountCard";
 
-import { Stickers } from "../AboutUs/StickerData";
+import { Stickers } from "../../data/stickers.json";
 
 function Discount() {
   return (
