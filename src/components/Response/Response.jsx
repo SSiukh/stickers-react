@@ -43,9 +43,7 @@ function Response() {
               onClick={leftButton}
               className={styles.responseSwitchButton}
             >
-              <svg width={30} height={30} className={styles.responseSwitchIcon}>
-                <use href={`${icons}#icon-arrow`}></use>
-              </svg>
+              {"<"}
             </button>
             <div className={styles.responseImgContainer}>
               {Data.map((img) => (
@@ -62,13 +60,14 @@ function Response() {
               onClick={rightButton}
               className={styles.responseSwitchButton}
             >
-              <svg
+              {/* <svg
                 width={30}
                 height={30}
                 className={`${styles.responseSwitchIcon} ${styles.rotateIcon}`}
               >
                 <use href={`${icons}#icon-arrow`}></use>
-              </svg>
+              </svg> */}
+              {">"}
             </button>
           </div>
         </div>
