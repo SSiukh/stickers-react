@@ -1,0 +1,15 @@
+.headerContainer {
+  height: 94px;
+  background-color: #346227;
+}
+.pathSection {
+  padding: 10px 0px;
+  background-color: #f2e8cf;
+  border-bottom: 1px solid #8f8989;
+}
+.pathText {
+  font-family: "Outfit", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #4f4515;
+}

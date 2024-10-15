@@ -1,0 +1,70 @@
+.mainSection {
+  background-color: #346227;
+}
+.mainContainer {
+  display: flex;
+}
+.mainSideContainer {
+  min-width: 350px;
+  padding: 40px 0px;
+  border-right: 1px solid #8f8989;
+}
+.mainProductsContainer {
+  flex-grow: 2;
+  padding: 40px 0px;
+}
+.sideContainerTitle {
+  font-weight: 600;
+  font-size: 20px;
+  color: #f2e8cf;
+  margin-bottom: 26px;
+}
+.sideContainerList {
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+.sideContainerListItems {
+  font-weight: 500;
+  font-size: 16px;
+  color: #f2e8cf;
+  cursor: pointer;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.sideContainerListItem {
+  font-weight: 600;
+  font-size: 16px;
+  color: #f2e8cf;
+}
+.sideContainerSecondList {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  padding-left: 16px;
+}
+.sideContainerSecondListItems {
+  font-weight: 500;
+  font-size: 16px;
+  color: #f2e8cf;
+  cursor: pointer;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.sideContainerListItems:hover,
+.sideContainerSecondListItems:hover {
+  color: #eb6424;
+}
+.mainProductsContainer {
+  padding-left: 65px;
+}
+.mainProductsTitle {
+  font-weight: 600;
+  font-size: 32px;
+  color: #f2e8cf;
+  margin-bottom: 40px;
+}
+.catalogueProductsContainer {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}

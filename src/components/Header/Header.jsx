@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Header.module.css";
 import icons from "/icons.svg";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -8,9 +9,9 @@ function Header() {
       <header className={styles.header}>
         <div className="container">
           <nav className={styles.headerNav}>
-            <a href="#" className={styles.headerLogo}>
+            <Link to="/." className={styles.headerLogo}>
               sticker ua
-            </a>
+            </Link>
             <ul className={styles.headerNavList}>
               <li className={styles.headerNavLi}>
                 <a href="#" className={styles.headerNavItem}>
@@ -23,9 +24,9 @@ function Header() {
                 </a>
               </li>
               <li>
-                <a href="#" className={styles.headerNavItem}>
+                <Link to="/Catalogue" className={styles.headerNavItem}>
                   Каталог
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="#" className={styles.headerNavItem}>

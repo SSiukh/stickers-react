@@ -1,0 +1,76 @@
+.catalogueCard {
+  border-radius: 30px;
+  background-color: #f2e8cf;
+  padding: 10px 20px;
+}
+.catalogueCardImg {
+  border: 1px solid #38572a;
+  border-radius: 21px;
+}
+.catalogueCardFirstDiv {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+.catalogueCardTitle {
+  font-weight: 600;
+  font-size: 15px;
+  color: #346227;
+}
+.catalogueCardHeartButton {
+  background: transparent;
+  border: none;
+}
+.catalogueCardHeart {
+  fill: #e9ebe5;
+  stroke: #eb6424;
+  stroke-width: 2px;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.catalogueCardHeartButton:hover > .catalogueCardHeart,
+.catalogueCardHeartButton:focus > .catalogueCardHeart {
+  fill: #eb6424;
+}
+.catalogueCardSecondDiv {
+  display: flex;
+  margin-top: 15px;
+  justify-content: space-between;
+  align-items: center;
+}
+.catalogueCardLastPrice {
+  font-weight: 400;
+  font-size: 12px;
+  color: #8f8989;
+  text-decoration: line-through;
+  display: block;
+}
+.priceEmphasis {
+  font-weight: 600;
+  font-size: 14px;
+  color: #f00;
+}
+.catalogueCardNewPrice {
+  font-weight: 400;
+  font-size: 14px;
+}
+.catalogueCardCartButton {
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+  border: 1px solid #eb6424;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.catalogueCardCartButton:hover,
+.catalogueCardCartButton:focus {
+  background-color: #eb6424;
+}
+.catalogueCardCart {
+  fill: #eb6424;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.catalogueCardCartButton:hover > .catalogueCardCart,
+.catalogueCardCartButton:focus > .catalogueCardCart {
+  fill: #f2e8cf;
+}

@@ -5,5 +5,5 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   base: "/stickers-react/",
-  assetsInclude: ["**/*.JPG", "**/*.jpg"],
+  assetsInclude: ["**/*.JPG", "**/*.jpg", "**/*.PNG", "**/*.png"],
 });
