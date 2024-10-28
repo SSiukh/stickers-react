@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import styles from "./Discount.module.css";
 import icons from "/icons.svg";
+import { Stickers } from "../../data/stickers";
 
-function DiscountCard({ path, name, price, discount }) {
+function DiscountCard({ path, name, price, discount, index }) {
   return (
     <div className={styles.discountCard}>
       <img
@@ -27,8 +28,25 @@ function DiscountCard({ path, name, price, discount }) {
             грн/шт
           </p>
         </div>
-        <button className={styles.discountCardCartButton}>
-          <svg width={20} height={20} className={styles.discountCardCart}>
+        <button
+          onClick={() => {
+            Stickers[index].isInCart = true;
+          }}
+          className={
+            Stickers[index].isInCart
+              ? `${styles.discountCardCartButton} ${styles.isInCard}`
+              : styles.discountCardCartButton
+          }
+        >
+          <svg
+            width={20}
+            height={20}
+            className={
+              Stickers[index].isInCart
+                ? `${styles.discountCardCart} ${styles.iconIsInCard}`
+                : styles.discountCardCart
+            }
+          >
             <use href={`${icons}#icon-cart`}></use>
           </svg>
         </button>

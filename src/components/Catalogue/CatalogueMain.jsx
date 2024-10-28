@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./CatalogueMain.module.css";
 import Card from "./СatalogueCard";
-import { Stickers } from "../../data/stickers.json";
+import { Stickers } from "../../data/stickers";
 
 function CatalogueMain({ getInfo }) {
   const [title, setTitle] = useState("Всі продукти");
@@ -141,6 +141,7 @@ function CatalogueMain({ getInfo }) {
                         name={sticker.name}
                         price={sticker.price}
                         discount={sticker.discount}
+                        index={sticker.index}
                       />
                     );
                   }

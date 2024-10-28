@@ -1,0 +1,121 @@
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+}
+
+%padding {
+    padding: 12px 20px;
+}
+
+$maincolor: #f2e8cf;
+$firstBackColor: #38572A;
+$secondBackColor: #346227;
+$contentCOlor: #EB6424;
+
+@mixin transit($property){
+    transition: $property 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modaleOverlay{
+    position: fixed;
+    z-index: 3;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    background-color: rgba(0, 0, 0, 0.367);
+    .modaleCart{
+        border-left: 1px solid #f2e8cf;
+        min-width: 35%;
+        background-color: #38572A;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        &_Head{
+            display: flex;
+            border-bottom: 1px solid #f2e8cf;
+            justify-content: space-between;
+            @extend %padding;
+            &_Title{
+                font-weight: 400;
+                font-size: 16px;
+                color: #f2e8cf;
+            }
+            &_Button{
+                background: none;
+                border: none;
+                color: #f2e8cf;
+                padding: 0
+            }
+        }
+        &_Items{
+            @extend %padding;
+        }
+
+        &_summary{
+            @extend %padding;
+            display: flex;
+            justify-content: space-between;
+            background-color: $secondBackColor;
+            border-bottom: 1px solid #f2e8cf;
+            &_text{
+                font-weight: 500;
+                    font-size: 13px;
+                    color: #f2e8cf;
+            }
+
+            &_price{
+                font-weight: 500;
+                    font-size: 13px;
+                    color: #f2e8cf;
+            }
+        }
+
+        &_buttons{
+            @extend %padding;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background-color: $secondBackColor;
+
+            &_toCart{
+                border: 1px solid #f2e8cf;
+                    border-radius: 7px;
+                    padding: 8px 0px;
+                    display: flex;
+                    justify-content: center;
+                    background-color: transparent;
+                    color: $maincolor;
+                    font-weight: 500;
+                        font-size: 16px;
+                        @include transit(background-color);
+                        @include transit(border);
+                    
+                        &:hover,
+                        &:active {
+                            background-color: $contentCOlor;
+                            border: 1px solid transparent;
+                        }
+            }
+
+            &_toOffer{
+                
+                padding: 8px 0px;
+                border-radius: 7px;
+                background-color: $contentCOlor;
+                border: 1px solid transparent;
+                font-weight: 500;
+                font-size: 16px;
+                color: #f2e8cf;
+                @include transit(background-color);
+                @include transit(border);
+                &:hover,
+                &:active {
+                    background-color: transparent;
+                    border: 1px solid #f2e8cf;
+                }
+            }
+        }
+    }
+}

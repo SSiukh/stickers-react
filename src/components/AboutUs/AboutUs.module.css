@@ -166,3 +166,11 @@
 .infoStickerButton:hover .infoStickerIcon {
   fill: #eb6424;
 }
+
+.iconIsInCard {
+  fill: #eb6424;
+}
+
+.isInCard {
+  background-color: #f2e8cf;
+}

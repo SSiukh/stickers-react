@@ -3,8 +3,12 @@ import Header from "../components/Header/Header";
 import CatalogueHeader from "../components/Catalogue/CatalogueHeader";
 import CatalogueMain from "../components/Catalogue/CatalogueMain";
 
-const Catalogue = () => {
+const Catalogue = ({ toggle }) => {
   const [position, setPosition] = useState("Каталог");
+  const [isOpenModuleCart, setIsOpenModuleCart] = useState(false);
+  function handleToggle() {
+    toggle();
+  }
 
   const dataFromChild = (childData) => {
     setPosition(childData);
@@ -12,7 +16,7 @@ const Catalogue = () => {
 
   return (
     <>
-      <Header />
+      <Header toggle={handleToggle} />
       <CatalogueHeader path={position} />
       <CatalogueMain getInfo={dataFromChild} />
     </>

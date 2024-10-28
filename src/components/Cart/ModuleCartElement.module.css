@@ -1,0 +1,42 @@
+.element {
+  display: flex;
+  padding: 10px 0px;
+  justify-content: space-between;
+  border-bottom: 1px solid #f2e8cf;
+  align-items: center;
+}
+.element_info {
+  display: flex;
+}
+.element_info_img {
+  border: 1px solid #fff;
+  border-radius: 15px;
+}
+.element_info_textDiv {
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.element_info_textDiv_name {
+  font-weight: 600;
+  font-size: 15px;
+  color: #f2e8cf;
+}
+.element_info_textDiv_price {
+  font-weight: 500;
+  font-size: 13px;
+  color: #f2e8cf;
+}
+.element_button {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #f2e8cf;
+  border-radius: 100%;
+  font-size: 10px;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f2e8cf;
+}

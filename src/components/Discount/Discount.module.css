@@ -81,3 +81,11 @@
   font-size: 16px;
   color: #f00;
 }
+
+.iconIsInCard {
+  fill: #eb6424;
+}
+
+.isInCard {
+  background-color: #f2e8cf;
+}

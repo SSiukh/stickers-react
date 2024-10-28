@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import styles from "./CatalogueCard.module.css";
 import icons from "/icons.svg";
+import { Stickers } from "../../data/stickers";
 
-function CatalogueCard({ path, name, price, discount }) {
+function CatalogueCard({ path, name, price, discount, index }) {
   return (
     <div className={styles.catalogueCard}>
       <img
@@ -46,8 +47,24 @@ function CatalogueCard({ path, name, price, discount }) {
             грн/шт
           </span>
         </div>
-        <button className={styles.catalogueCardCartButton}>
-          <svg width={20} height={20} className={styles.catalogueCardCart}>
+        <button
+          type="button"
+          onClick={() => (Stickers[index].isInCart = true)}
+          className={
+            Stickers[index].isInCart
+              ? `${styles.catalogueCardCartButton} ${styles.isInCart}`
+              : styles.catalogueCardCartButton
+          }
+        >
+          <svg
+            width={20}
+            height={20}
+            className={
+              Stickers[index].isInCart
+                ? `${styles.catalogueCardCart} ${styles.iconIsInCart}`
+                : styles.catalogueCardCart
+            }
+          >
             <use href={`${icons}#icon-cart`}></use>
           </svg>
         </button>

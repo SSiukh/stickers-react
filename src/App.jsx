@@ -7,18 +7,23 @@ import AboutUs from "./components/AboutUs/AboutUs";
 import Discount from "./components/Discount/Discount";
 import Response from "./components/Response/Response";
 import Catalog from "./pages/Catalogue";
+import ModaleCart from "./components/Cart/ModaleCart";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [isOpenModuleCart, setIsOpenModuleCart] = useState(false);
 
   return (
     <Router basename="/stickers-react">
+      <ModaleCart
+        close={() => setIsOpenModuleCart(false)}
+        isOpen={isOpenModuleCart}
+      />
       <Routes>
         <Route
           path="/"
           element={
             <>
-              <Header />
+              <Header toggle={() => setIsOpenModuleCart(true)} />
               <Hero />
               <AboutUs />
               <Discount />
@@ -26,7 +31,11 @@ function App() {
             </>
           }
         />
-        <Route path="/Catalogue" element={<Catalog />} /> {/* Новий маршрут */}
+        <Route
+          path="/Catalogue"
+          element={<Catalog toggle={() => setIsOpenModuleCart(true)} />}
+        />{" "}
+        {/* Новий маршрут */}
       </Routes>
     </Router>
   );

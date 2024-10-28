@@ -74,3 +74,10 @@
 .catalogueCardCartButton:focus > .catalogueCardCart {
   fill: #f2e8cf;
 }
+.iconIsInCart {
+  fill: #f2e8cf;
+}
+
+.isInCart {
+  background-color: #eb6424;
+}

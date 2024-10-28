@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Header.module.css";
 import icons from "/icons.svg";
 import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 
-function Header() {
+import { Stickers } from "../../data/stickers";
+
+function Header({ toggle }) {
+  function handleToggle() {
+    toggle();
+  }
+
+  const numbStickerInCart = Stickers.filter(
+    (sticker) => sticker.isInCart
+  ).length;
+
   return (
     <>
       <header className={styles.header}>
@@ -14,14 +25,19 @@ function Header() {
             </Link>
             <ul className={styles.headerNavList}>
               <li className={styles.headerNavLi}>
-                <a href="#" className={styles.headerNavItem}>
+                <Link to="/." className={styles.headerNavItem}>
                   Головна
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className={styles.headerNavItem}>
+                <ScrollLink
+                  to="aboutUs"
+                  smooth={true}
+                  duration={500}
+                  className={styles.headerNavItem}
+                >
                   Про нас
-                </a>
+                </ScrollLink>
               </li>
               <li>
                 <Link to="/Catalogue" className={styles.headerNavItem}>
@@ -29,14 +45,24 @@ function Header() {
                 </Link>
               </li>
               <li>
-                <a href="#" className={styles.headerNavItem}>
+                <ScrollLink
+                  to="discount"
+                  smooth="true"
+                  duration={500}
+                  className={styles.headerNavItem}
+                >
                   Акції
-                </a>
+                </ScrollLink>
               </li>
               <li>
-                <a href="#" className={styles.headerNavItem}>
+                <ScrollLink
+                  to="response"
+                  smooth="true"
+                  duration={500}
+                  className={styles.headerNavItem}
+                >
                   Відгуки
-                </a>
+                </ScrollLink>
               </li>
               <li>
                 <a href="#" className={styles.headerNavItem}>
@@ -64,6 +90,19 @@ function Header() {
                   <use href={`${icons}#icon-telegram`} />
                 </svg>
               </a>
+              <button
+                type="button"
+                onClick={handleToggle}
+                className={styles.headerCartLink}
+                href=""
+              >
+                <svg width={25} height={25} className={styles.headerCartIcon}>
+                  <use href={`${icons}#icon-cart`} />
+                </svg>
+                <span className={styles.headerCartNum}>
+                  {numbStickerInCart}
+                </span>
+              </button>
             </div>
           </nav>
         </div>

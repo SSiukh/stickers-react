@@ -30,7 +30,7 @@ function Response() {
   }
 
   return (
-    <section className={styles.responseSection}>
+    <section id="response" className={styles.responseSection}>
       <div className="container">
         <div className={styles.responseContainer}>
           <h2 className={styles.responseTitle}>

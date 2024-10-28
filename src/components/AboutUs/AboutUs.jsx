@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./AboutUs.module.css";
 import icons from "/icons.svg";
 
-import { Stickers } from "../../data/stickers.json";
+import { Stickers } from "../../data/stickers";
 
 function AboutUs() {
   const [sliceIndex, setSliceIndex] = useState(1);
@@ -29,7 +29,7 @@ function AboutUs() {
   }
 
   return (
-    <section className={styles.aboutUs}>
+    <section id="aboutUs" className={styles.aboutUs}>
       <div className="container">
         <div className={styles.aboutContainer}>
           <div className={styles.aboutBlock}>
@@ -71,11 +71,22 @@ function AboutUs() {
                 <a href="" className={styles.infoStickerCatalogue}>
                   Каталог
                 </a>
-                <button className={styles.infoStickerButton}>
+                <button
+                  onClick={() => (Stickers[indexActive].isInCart = true)}
+                  className={
+                    Stickers[indexActive].isInCart
+                      ? `${styles.infoStickerButton} ${styles.isInCard}`
+                      : styles.infoStickerButton
+                  }
+                >
                   <svg
                     width={20}
                     height={20}
-                    className={styles.infoStickerIcon}
+                    className={
+                      Stickers[indexActive].isInCart
+                        ? `${styles.infoStickerIcon} ${styles.iconIsInCard}`
+                        : styles.infoStickerIcon
+                    }
                   >
                     <use href={`${icons}#icon-cart`}></use>
                   </svg>
