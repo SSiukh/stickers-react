@@ -8,6 +8,8 @@ import Discount from "./components/Discount/Discount";
 import Response from "./components/Response/Response";
 import Catalog from "./pages/Catalogue";
 import ModaleCart from "./components/Cart/ModaleCart";
+import Footer from "./components/Footer/Footer";
+import Form from "./components/Form/Form";
 
 function App() {
   const [isOpenModuleCart, setIsOpenModuleCart] = useState(false);
@@ -28,6 +30,7 @@ function App() {
               <AboutUs />
               <Discount />
               <Response />
+              <Footer />
             </>
           }
         />

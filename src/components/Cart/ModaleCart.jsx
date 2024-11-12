@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import styles from "./ModaleCart.module.css";
 import ModaleCartElement from "./ModaleCartElement";
 import { Stickers } from "../../data/stickers";
+import Form from "../Form/Form";
 
 function ModaleCart({ close, isOpen }) {
+  const [isFormVisible, setIsFormVisible] = useState(false);
+
   function stickersInCart(object) {
     return object.filter((sticker) => sticker.isInCart);
   }
@@ -50,12 +53,22 @@ function ModaleCart({ close, isOpen }) {
             <button type="button" className={styles.modaleCart_buttons_toCart}>
               Перейти до кошика
             </button>
-            <button type="button" className={styles.modaleCart_buttons_toOffer}>
+            <button
+              onClick={() => setIsFormVisible(true)}
+              type="button"
+              className={styles.modaleCart_buttons_toOffer}
+            >
               Перейти до оформлення замовлення
             </button>
           </div>
         </div>
       </div>
+      <Form
+        visibility={isFormVisible}
+        onClose={() => {
+          setIsFormVisible(false);
+        }}
+      />
     </div>
   );
 }

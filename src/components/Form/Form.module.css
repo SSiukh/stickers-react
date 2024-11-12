@@ -1,0 +1,152 @@
+.hidden {
+  visibility: hidden;
+  display: none;
+}
+
+.formOverlay {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  min-width: 450px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 74px;
+  padding-bottom: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+  align-items: center;
+  background-color: #346227;
+  position: relative;
+}
+.form_exitButton {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background-color: transparent;
+  border: 1px solid #f2e8cf;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  color: #f2e8cf;
+  font-size: 12px;
+  transition: color 250ms ease, border-color 250ms ease;
+
+  &:hover {
+    border-color: #eb6424;
+    color: #eb6424;
+  }
+}
+.form_title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: #f2e8cf;
+  margin-bottom: 32px;
+}
+.form_inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+.form_inputs_label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 200;
+  font-size: 14px;
+  line-height: 1.16667;
+  letter-spacing: 0.04em;
+  color: #f2e8cf;
+}
+.form_inputs_input {
+  margin-top: 4px;
+  width: 100%;
+  border: 1px solid #f2e8cf;
+  border-radius: 4px;
+  height: 40px;
+  background-color: transparent;
+  padding-left: 15px;
+  color: #f2e8cf;
+  transition: border-color 250ms ease, border-width 250ms ease;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: #eb6424;
+    border-width: 2px;
+    outline: none;
+  }
+}
+
+.form_inputs_select {
+  margin-top: 4px;
+  width: 100%;
+  border: 1px solid #f2e8cf;
+  border-radius: 4px;
+  height: 40px;
+  background-color: transparent;
+  padding-left: 15px;
+  color: #f2e8cf;
+  transition: border-color 250ms ease, border-width 250ms ease;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: #eb6424;
+    border-width: 2px;
+    outline: none;
+  }
+}
+
+.form_inputs_select_options {
+  appearance: none;
+  color: #f2e8cf;
+  background-color: #346227;
+  transition: background-color 250ms ease;
+  outline: none;
+  border: 1px solid #f2e8cf;
+
+  &:hover {
+    background-color: #38572a;
+  }
+}
+
+.form_inputs_button {
+  border-radius: 4px;
+  padding: 16px 32px;
+  width: 169px;
+  height: 56px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  background: #eb6424;
+  margin: 0 auto;
+  margin-top: 30px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: #f2e8cf;
+  border: none;
+  transition: background-color 250ms ease, color 250ms ease;
+
+  &:hover {
+    background-color: #f2e8cf;
+    color: #38572a;
+  }
+}
+
+/*# sourceMappingURL=Form.module.css.map */
