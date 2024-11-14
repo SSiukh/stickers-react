@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import styles from "./ModuleCartElement.module.css";
 import { Stickers } from "../../data/stickers";
+import { removeLocaleCart } from "../../data/localStorage";
 
-function ModaleCartElement({ sticker }) {
+function ModaleCartElement({ cartQty, sticker }) {
   const [cartStickers, setCartStickers] = useState(
     Stickers.filter((sticker) => sticker.isInCart)
   );
@@ -27,7 +28,10 @@ function ModaleCartElement({ sticker }) {
         </div>
       </div>
       <button
-        onClick={() => handleRemoveFromCart(sticker.index)}
+        onClick={() => {
+          removeLocaleCart(sticker.index);
+          cartQty();
+        }}
         type="button"
         className={styles.element_button}
       >

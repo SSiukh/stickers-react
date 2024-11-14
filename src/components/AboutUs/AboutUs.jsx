@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import styles from "./AboutUs.module.css";
 import icons from "/icons.svg";
+import { setLocaleCart } from "../../data/localStorage";
 
 import { Stickers } from "../../data/stickers";
 
-function AboutUs() {
+function AboutUs({ cartQty }) {
   const [sliceIndex, setSliceIndex] = useState(1);
   const [activeSticker, setActiveSticker] = useState(0);
   const [indexActive, setIndexActive] = useState(0);
@@ -72,7 +73,10 @@ function AboutUs() {
                   Каталог
                 </a>
                 <button
-                  onClick={() => (Stickers[indexActive].isInCart = true)}
+                  onClick={() => {
+                    setLocaleCart({ id: indexActive, qty: 1 });
+                    cartQty();
+                  }}
                   className={
                     Stickers[indexActive].isInCart
                       ? `${styles.infoStickerButton} ${styles.isInCard}`

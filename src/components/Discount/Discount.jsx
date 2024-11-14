@@ -4,7 +4,7 @@ import DiscountCard from "./DiscountCard";
 
 import { Stickers } from "../../data/stickers";
 
-function Discount() {
+function Discount({ cartQty }) {
   return (
     <section id="discount" className={styles.discountSection}>
       <div className="container">
@@ -19,6 +19,7 @@ function Discount() {
                   price={sticker.price}
                   discount={sticker.discount}
                   index={sticker.index}
+                  cartQty={cartQty}
                 />
               );
             }

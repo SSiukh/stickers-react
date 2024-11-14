@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./ModaleCart.module.css";
 import ModaleCartElement from "./ModaleCartElement";
 import { Stickers } from "../../data/stickers";
 import Form from "../Form/Form";
+import { Link } from "react-router-dom";
 
-function ModaleCart({ close, isOpen }) {
+function ModaleCart({ cartQty, close, isOpen }) {
   const [isFormVisible, setIsFormVisible] = useState(false);
+  const [stickInCart, setStickInCart] = useState(stickersInCart(Stickers));
 
-  function stickersInCart(object) {
-    return object.filter((sticker) => sticker.isInCart);
+  function stickersInCart(obj) {
+    const currentArray = JSON.parse(localStorage.getItem("cart")) || [];
+    const idArray = currentArray.map((item) => item.id);
+    const sumArray = obj.filter((item) => {
+      return idArray.includes(item.index);
+    });
+
+    return sumArray;
   }
 
   function handleClose() {
@@ -32,7 +40,11 @@ function ModaleCart({ close, isOpen }) {
           <div className={styles.modaleCart_Items}>
             {stickersInCart(Stickers).map((sticker) => {
               return (
-                <ModaleCartElement key={sticker.index} sticker={sticker} />
+                <ModaleCartElement
+                  cartQty={cartQty}
+                  key={sticker.index}
+                  sticker={sticker}
+                />
               );
             })}
           </div>
@@ -50,11 +62,18 @@ function ModaleCart({ close, isOpen }) {
             </p>
           </div>
           <div className={styles.modaleCart_buttons}>
-            <button type="button" className={styles.modaleCart_buttons_toCart}>
+            <Link
+              onClick={() => setIsModalVisible(false)}
+              to="/Cart"
+              className={styles.modaleCart_buttons_toCart}
+            >
               Перейти до кошика
-            </button>
+            </Link>
             <button
-              onClick={() => setIsFormVisible(true)}
+              onClick={() => {
+                handleClose;
+                setIsFormVisible(true);
+              }}
               type="button"
               className={styles.modaleCart_buttons_toOffer}
             >

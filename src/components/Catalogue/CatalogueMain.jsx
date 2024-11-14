@@ -3,7 +3,7 @@ import styles from "./CatalogueMain.module.css";
 import Card from "./СatalogueCard";
 import { Stickers } from "../../data/stickers";
 
-function CatalogueMain({ getInfo }) {
+function CatalogueMain({ cartQty, getInfo }) {
   const [title, setTitle] = useState("Всі продукти");
 
   useEffect(() => {
@@ -142,6 +142,7 @@ function CatalogueMain({ getInfo }) {
                         price={sticker.price}
                         discount={sticker.discount}
                         index={sticker.index}
+                        cartQty={cartQty}
                       />
                     );
                   }

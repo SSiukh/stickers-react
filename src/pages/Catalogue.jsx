@@ -1,14 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header/Header";
 import CatalogueHeader from "../components/Catalogue/CatalogueHeader";
 import CatalogueMain from "../components/Catalogue/CatalogueMain";
 import Footer from "../components/Footer/Footer";
 
-const Catalogue = ({ toggle }) => {
+const Catalogue = ({ modalHeadCartNum, toggle }) => {
   const [position, setPosition] = useState("Каталог");
   const [isOpenModuleCart, setIsOpenModuleCart] = useState(false);
   function handleToggle() {
     toggle();
+  }
+
+  const [cartNum, setCartNum] = useState(
+    JSON.parse(localStorage.getItem("cart"))
+      ? JSON.parse(localStorage.getItem("cart")).length
+      : 0
+  );
+
+  function cartQty() {
+    setCartNum(
+      JSON.parse(localStorage.getItem("cart"))
+        ? JSON.parse(localStorage.getItem("cart")).length
+        : 0
+    );
   }
 
   const dataFromChild = (childData) => {
@@ -17,9 +31,13 @@ const Catalogue = ({ toggle }) => {
 
   return (
     <>
-      <Header toggle={handleToggle} />
+      <Header
+        modalHeadCartNum={modalHeadCartNum}
+        headCartNum={cartNum}
+        toggle={handleToggle}
+      />
       <CatalogueHeader path={position} />
-      <CatalogueMain getInfo={dataFromChild} />
+      <CatalogueMain cartQty={cartQty} getInfo={dataFromChild} />
       <Footer />
     </>
   );

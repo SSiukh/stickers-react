@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import styles from "./CatalogueCard.module.css";
 import icons from "/icons.svg";
 import { Stickers } from "../../data/stickers";
+import { setLocaleCart } from "../../data/localStorage";
 
-function CatalogueCard({ path, name, price, discount, index }) {
+function CatalogueCard({ path, name, price, discount, index, cartQty }) {
   return (
     <div className={styles.catalogueCard}>
       <img
@@ -49,7 +50,10 @@ function CatalogueCard({ path, name, price, discount, index }) {
         </div>
         <button
           type="button"
-          onClick={() => (Stickers[index].isInCart = true)}
+          onClick={() => {
+            setLocaleCart({ id: index, qty: 1 });
+            cartQty();
+          }}
           className={
             Stickers[index].isInCart
               ? `${styles.catalogueCardCartButton} ${styles.isInCart}`

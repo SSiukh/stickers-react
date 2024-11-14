@@ -1,0 +1,97 @@
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+}
+
+.modaleOverlay .modaleCart_buttons, .modaleOverlay .modaleCart_summary, .modaleOverlay .modaleCart_Items, .modaleOverlay .modaleCart_Head {
+  padding: 12px 20px;
+}
+
+.modaleOverlay {
+  position: fixed;
+  z-index: 3;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  background-color: rgba(0, 0, 0, 0.367);
+}
+.modaleOverlay .modaleCart {
+  border-left: 1px solid #f2e8cf;
+  min-width: 35%;
+  background-color: #38572A;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.modaleOverlay .modaleCart_Head {
+  display: flex;
+  border-bottom: 1px solid #f2e8cf;
+  justify-content: space-between;
+}
+.modaleOverlay .modaleCart_Head_Title {
+  font-weight: 400;
+  font-size: 16px;
+  color: #f2e8cf;
+}
+.modaleOverlay .modaleCart_Head_Button {
+  background: none;
+  border: none;
+  color: #f2e8cf;
+  padding: 0;
+}
+.modaleOverlay .modaleCart_summary {
+  display: flex;
+  justify-content: space-between;
+  background-color: #346227;
+  border-bottom: 1px solid #f2e8cf;
+}
+.modaleOverlay .modaleCart_summary_text {
+  font-weight: 500;
+  font-size: 13px;
+  color: #f2e8cf;
+}
+.modaleOverlay .modaleCart_summary_price {
+  font-weight: 500;
+  font-size: 13px;
+  color: #f2e8cf;
+}
+.modaleOverlay .modaleCart_buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #346227;
+}
+.modaleOverlay .modaleCart_buttons_toCart {
+  border: 1px solid #f2e8cf;
+  border-radius: 7px;
+  padding: 8px 0px;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  color: #f2e8cf;
+  font-weight: 500;
+  font-size: 16px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modaleOverlay .modaleCart_buttons_toCart:hover, .modaleOverlay .modaleCart_buttons_toCart:active {
+  background-color: #EB6424;
+  border: 1px solid transparent;
+}
+.modaleOverlay .modaleCart_buttons_toOffer {
+  padding: 8px 0px;
+  border-radius: 7px;
+  background-color: #EB6424;
+  border: 1px solid transparent;
+  font-weight: 500;
+  font-size: 16px;
+  color: #f2e8cf;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modaleOverlay .modaleCart_buttons_toOffer:hover, .modaleOverlay .modaleCart_buttons_toOffer:active {
+  background-color: transparent;
+  border: 1px solid #f2e8cf;
+}/*# sourceMappingURL=ModaleCart.css.map */

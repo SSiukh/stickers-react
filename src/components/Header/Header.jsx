@@ -1,19 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Header.module.css";
 import icons from "/icons.svg";
-import { Link } from "react-router-dom";
+import { json, Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
+import { useLocation } from "react-router-dom";
 
 import { Stickers } from "../../data/stickers";
 
-function Header({ toggle }) {
+function Header({ modalHeadCartNum, headCartNum, toggle }) {
+  const [cartNum, setCartNum] = useState(
+    JSON.parse(localStorage.getItem("cart"))
+      ? JSON.parse(localStorage.getItem("cart")).length
+      : 0
+  );
+
   function handleToggle() {
     toggle();
   }
 
-  const numbStickerInCart = Stickers.filter(
-    (sticker) => sticker.isInCart
-  ).length;
+  useEffect(() => {
+    setCartNum(headCartNum);
+  }, [headCartNum]);
+
+  useEffect(() => {
+    setCartNum(modalHeadCartNum);
+  }, [modalHeadCartNum]);
+
+  useEffect(() => {
+    setCartNum(
+      JSON.parse(localStorage.getItem("cart"))
+        ? JSON.parse(localStorage.getItem("cart")).length
+        : 0
+    );
+  }, []);
+
+  const location = useLocation();
 
   return (
     <>
@@ -65,9 +86,9 @@ function Header({ toggle }) {
                 </ScrollLink>
               </li>
               <li>
-                <a href="#" className={styles.headerNavItem}>
-                  Замовити
-                </a>
+                <Link to="/Cart" className={styles.headerNavItem}>
+                  Кошик
+                </Link>
               </li>
             </ul>
 
@@ -93,15 +114,17 @@ function Header({ toggle }) {
               <button
                 type="button"
                 onClick={handleToggle}
-                className={styles.headerCartLink}
+                className={
+                  location.pathname === "/Cart"
+                    ? styles.visuallyHidden
+                    : styles.headerCartLink
+                }
                 href=""
               >
                 <svg width={25} height={25} className={styles.headerCartIcon}>
                   <use href={`${icons}#icon-cart`} />
                 </svg>
-                <span className={styles.headerCartNum}>
-                  {numbStickerInCart}
-                </span>
+                <span className={styles.headerCartNum}>{cartNum}</span>
               </button>
             </div>
           </nav>

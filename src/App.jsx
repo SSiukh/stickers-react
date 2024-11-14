@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header/Header";
@@ -9,14 +9,32 @@ import Response from "./components/Response/Response";
 import Catalog from "./pages/Catalogue";
 import ModaleCart from "./components/Cart/ModaleCart";
 import Footer from "./components/Footer/Footer";
+import Cart from "./pages/Cart";
 import Form from "./components/Form/Form";
 
 function App() {
   const [isOpenModuleCart, setIsOpenModuleCart] = useState(false);
 
+  const [cartNum, setCartNum] = useState(
+    JSON.parse(localStorage.getItem("cart"))
+      ? JSON.parse(localStorage.getItem("cart")).length
+      : 0
+  );
+  function cartQty() {
+    setCartNum(
+      JSON.parse(localStorage.getItem("cart"))
+        ? JSON.parse(localStorage.getItem("cart")).length
+        : 0
+    );
+  }
+
+  function cartHidden() {}
+
   return (
     <Router basename="/stickers-react">
       <ModaleCart
+        cartHidden={cartHidden}
+        cartQty={cartQty}
         close={() => setIsOpenModuleCart(false)}
         isOpen={isOpenModuleCart}
       />
@@ -25,10 +43,13 @@ function App() {
           path="/"
           element={
             <>
-              <Header toggle={() => setIsOpenModuleCart(true)} />
+              <Header
+                headCartNum={cartNum}
+                toggle={() => setIsOpenModuleCart(true)}
+              />
               <Hero />
-              <AboutUs />
-              <Discount />
+              <AboutUs cartQty={cartQty} />
+              <Discount cartQty={cartQty} />
               <Response />
               <Footer />
             </>
@@ -36,9 +57,14 @@ function App() {
         />
         <Route
           path="/Catalogue"
-          element={<Catalog toggle={() => setIsOpenModuleCart(true)} />}
+          element={
+            <Catalog
+              modalHeadCartNum={cartNum}
+              toggle={() => setIsOpenModuleCart(true)}
+            />
+          }
         />{" "}
-        {/* Новий маршрут */}
+        <Route path="/Cart" element={<Cart />} />
       </Routes>
     </Router>
   );
