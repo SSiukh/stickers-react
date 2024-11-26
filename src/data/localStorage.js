@@ -1,3 +1,6 @@
+import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.min.css";
+
 export function setLocaleCart({ id, qty }) {
   const existData = JSON.parse(localStorage.getItem("cart")) || [];
   const currentElem = existData.find((item) => {
@@ -5,7 +8,14 @@ export function setLocaleCart({ id, qty }) {
   });
 
   if (currentElem) {
-    alert("У кошику вже присутній даний елемент");
+    iziToast.show({
+      theme: "dark",
+      title: "Помилка!",
+      message: "У кошику вже присутній цей товар",
+      position: "topRight",
+      color: "#eb6424",
+      timeout: 2000,
+    });
     return;
   }
 
@@ -21,7 +31,14 @@ export function removeLocaleCart(index) {
   });
 
   if (!currentElem) {
-    alert("У кошику відсутній даний елемент");
+    iziToast.show({
+      theme: "dark",
+      title: "Помилка!",
+      message: "У кошику відсутній цей товар",
+      position: "topRight",
+      color: "#eb6424",
+      timeout: 2000,
+    });
     return;
   }
 

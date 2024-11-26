@@ -5,6 +5,7 @@
 .discountDiv {
   display: flex;
   gap: 50px;
+  flex-wrap: wrap;
 }
 .discountCard {
   border-radius: 30px;

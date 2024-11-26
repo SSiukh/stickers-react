@@ -14,6 +14,11 @@ import Form from "./components/Form/Form";
 
 function App() {
   const [isOpenModuleCart, setIsOpenModuleCart] = useState(false);
+  const [isFormVisible, setIsFormVisible] = useState(false);
+
+  function visForm() {
+    setIsFormVisible(true);
+  }
 
   const [cartNum, setCartNum] = useState(
     JSON.parse(localStorage.getItem("cart"))
@@ -32,6 +37,12 @@ function App() {
 
   return (
     <Router basename="/stickers-react">
+      <Form
+        visibility={isFormVisible}
+        onClose={() => {
+          setIsFormVisible(false);
+        }}
+      />
       <ModaleCart
         cartHidden={cartHidden}
         cartQty={cartQty}
@@ -47,7 +58,7 @@ function App() {
                 headCartNum={cartNum}
                 toggle={() => setIsOpenModuleCart(true)}
               />
-              <Hero />
+              <Hero visForm={visForm} />
               <AboutUs cartQty={cartQty} />
               <Discount cartQty={cartQty} />
               <Response />

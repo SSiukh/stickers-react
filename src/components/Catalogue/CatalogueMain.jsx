@@ -2,13 +2,30 @@ import React, { useState, useEffect } from "react";
 import styles from "./CatalogueMain.module.css";
 import Card from "./СatalogueCard";
 import { Stickers } from "../../data/stickers";
+import Fuse from "fuse.js";
 
 function CatalogueMain({ cartQty, getInfo }) {
   const [title, setTitle] = useState("Всі продукти");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredStickers, setFilteredStickers] = useState(Stickers);
 
   useEffect(() => {
     getInfo(`Каталог >> ${title}`);
   }, [title, getInfo]);
+
+  useEffect(() => {
+    const fuse = new Fuse(Stickers, {
+      keys: ["name"],
+      includeScore: true,
+    });
+
+    if (searchQuery) {
+      const results = fuse.search(searchQuery);
+      setFilteredStickers(results.map((result) => result.item));
+    } else {
+      setFilteredStickers(Stickers);
+    }
+  }, [searchQuery]);
 
   function setPage(namePage) {
     switch (namePage) {
@@ -49,6 +66,10 @@ function CatalogueMain({ cartQty, getInfo }) {
         setTitle("Всі продукти");
     }
   }
+
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
 
   return (
     <>
@@ -130,10 +151,32 @@ function CatalogueMain({ cartQty, getInfo }) {
               </ul>
             </div>
             <div className={styles.mainProductsContainer}>
-              <h2 className={styles.mainProductsTitle}>{title}</h2>
+              <div className={styles.mainProductsHeadContainer}>
+                <h2 className={styles.mainProductsTitle}>{title}</h2>
+                <input
+                  value={searchQuery}
+                  onChange={handleSearchChange}
+                  placeholder="Шукати..."
+                  className={styles.cataloSearch}
+                  type="text"
+                />
+              </div>
+
               <div className={styles.catalogueProductsContainer}>
-                {Stickers.map((sticker) => {
-                  if (sticker.index !== 0) {
+                {filteredStickers.map((sticker) => {
+                  if (sticker.index !== 0 && title === "Всі продукти") {
+                    return (
+                      <Card
+                        key={sticker.index}
+                        path={sticker.path}
+                        name={sticker.name}
+                        price={sticker.price}
+                        discount={sticker.discount}
+                        index={sticker.index}
+                        cartQty={cartQty}
+                      />
+                    );
+                  } else if (sticker.index !== 0 && sticker.type === title) {
                     return (
                       <Card
                         key={sticker.index}

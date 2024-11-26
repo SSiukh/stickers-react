@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Hero.module.css";
 import logo from "../../assets/hero-logo.png";
 
-function Hero() {
+function Hero({ visForm }) {
   return (
     <section className={styles.hero}>
       <div className="container">
@@ -14,7 +14,9 @@ function Hero() {
             <p className={styles.heroText}>
               Перетвори свій байк на витвір мистецтва
             </p>
-            <button className={styles.heroButton}>Зробити замовлення</button>
+            <button onClick={visForm} className={styles.heroButton}>
+              Зробити замовлення
+            </button>
           </div>
           <img src={logo} alt="logotype" className={styles.heroImg} />
         </div>
