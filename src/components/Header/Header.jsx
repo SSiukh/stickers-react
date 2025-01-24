@@ -8,6 +8,7 @@ import { useLocation } from "react-router-dom";
 import { Stickers } from "../../data/stickers";
 
 function Header({ modalHeadCartNum, headCartNum, toggle }) {
+  // Використовуємо useState для збереження кількості елементів в кошику
   const [cartNum, setCartNum] = useState(
     JSON.parse(localStorage.getItem("cart"))
       ? JSON.parse(localStorage.getItem("cart")).length
@@ -18,10 +19,13 @@ function Header({ modalHeadCartNum, headCartNum, toggle }) {
     toggle();
   }
 
+  // використання значення props
   useEffect(() => {
     setCartNum(headCartNum);
   }, [headCartNum]);
 
+  // При зміні пропса modalHeadCartNum виконується встановлення
+  // стану значення цього пропса з допомогою useEffect
   useEffect(() => {
     setCartNum(modalHeadCartNum);
   }, [modalHeadCartNum]);

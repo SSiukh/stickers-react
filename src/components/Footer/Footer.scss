@@ -1,8 +1,11 @@
+// викориситання змінних для збереження основних кольорів:
+
 $background: #38572a;
 $textcolor: #f2e8cf;
 $hovercolor: #eb6424;
 $transpTextColor: #fbfbfb50;
 
+// використання міксину для повторюваного переходу
 @mixin setTransition($value...) {
   transition: $value 250ms ease;
 }
@@ -15,6 +18,7 @@ $transpTextColor: #fbfbfb50;
   padding: 40px 40px 28px 40px;
   border-radius: 30px;
 
+  // вкладеність елементів забепечує легше розуміння
   &_top {
     display: flex;
     justify-content: space-between;

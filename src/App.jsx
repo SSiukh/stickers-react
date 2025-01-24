@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
+
+// Імпорт за замовчуванням модуля:
 import Header from "./components/Header/Header";
+
+// Імпорт інших модулів:
 import Hero from "./components/Hero/Hero";
 import AboutUs from "./components/AboutUs/AboutUs";
 import Discount from "./components/Discount/Discount";
